@@ -129,6 +129,13 @@
   .dot-green  { background: #22C55E; }
   .dot-gray   { background: #94A3B8; }
 
+  /* View All toggle */
+  .view-all-wrap { text-align: center; margin-top: 12px; }
+  .view-all-btn { background: var(--gray-lt); border: 1px solid var(--border); border-radius: 20px;
+    padding: 5px 16px; font-size: 12px; font-weight: 600; color: var(--blue); cursor: pointer;
+    transition: background .15s; }
+  .view-all-btn:hover { background: var(--blue-lt); }
+
   /* Footer */
   .footer { text-align: center; color: var(--gray); font-size: 12px; padding: 16px 0 8px; }
 
@@ -426,7 +433,7 @@
       <thead>
         <tr><th>Ticket</th><th>Fix</th><th>SEO Impact</th><th>Owner</th><th>Status</th></tr>
       </thead>
-      <tbody>
+      <tbody id="shippedBody">
         <tr><td><strong>ASP-3430</strong> <span class="badge p0">P0</span></td><td>Bond data server-side rendered</td><td>Google can now read ISIN, yield, rating in raw HTML — core ranking signal</td><td>M. Mohsin F</td><td><span class="badge live">✅ Live Apr 20</span></td></tr>
         <tr><td><strong>ASP-3432</strong> <span class="badge p0">P0</span></td><td>Modal → accordion</td><td>ISIN, coupon, trustee now in DOM on load (were completely hidden)</td><td>M. Mohsin F</td><td><span class="badge live">✅ Live Apr 20</span></td></tr>
         <tr><td><strong>ASP-3433</strong> <span class="badge p0">P0</span></td><td>Bond-specific FAQs</td><td>Unique content per page — removes duplicate content penalty across 143 pages</td><td>M. Mohsin F</td><td><span class="badge live">✅ Live Apr 21</span></td></tr>
@@ -440,6 +447,7 @@
         <tr><td><strong>ASP-3453</strong> <span class="badge p0">P0</span></td><td>Next.js SSR foundation</td><td>Base layer enabling all fixes above</td><td>Saravanan S</td><td><span class="badge live">✅ Live Apr 16</span></td></tr>
       </tbody>
     </table>
+    <div class="view-all-wrap"><button class="view-all-btn" onclick="toggleRows('shippedBody',5,this)">View All (6 more) ▾</button></div>
   </div>
 
   <!-- Roadmap: Engineering -->
@@ -450,7 +458,7 @@
       <thead>
         <tr><th>Ticket</th><th>Feature</th><th>Expected Outcome</th><th>Owner</th><th>Status</th></tr>
       </thead>
-      <tbody>
+      <tbody id="engBody">
         <tr>
           <td>ASP-3601 <span class="badge p0">P0</span></td>
           <td>Fix sold-out bond API latency</td>
@@ -495,6 +503,7 @@
         </tr>
       </tbody>
     </table>
+    <div class="view-all-wrap"><button class="view-all-btn" onclick="toggleRows('engBody',3,this)">View All (3 more) ▾</button></div>
   </div>
 
   <!-- Roadmap: Marketing / Blog -->
@@ -530,7 +539,7 @@
       <thead>
         <tr><th>Ticket</th><th>Content Item</th><th>Target Keywords</th><th>Current Status</th><th>Organic Opportunity</th><th>Status</th></tr>
       </thead>
-      <tbody>
+      <tbody id="mktBody">
         <tr style="background:#FEF2F2">
           <td>ASP-3445 <span class="badge p2">P2</span></td>
           <td><strong>Migrate wordpress.aspero.co.in → aspero.in/blog/</strong></td>
@@ -589,6 +598,8 @@
         </tr>
       </tbody>
     </table>
+
+    <div class="view-all-wrap"><button class="view-all-btn" onclick="toggleRows('mktBody',3,this)">View All (4 more) ▾</button></div>
 
     <div class="callout" style="margin-top:16px;background:#F0FDF4;border-color:#BBF7D0">
       <span class="icon">🎯</span>
@@ -694,6 +705,15 @@
       </div>
     </div>
 
+    <!-- Special thanks to Mohsin -->
+    <div style="background:linear-gradient(135deg,#FFF7ED 0%,#FFFBEB 100%);border-radius:10px;border:2px solid #FCD34D;padding:16px 20px;margin-bottom:16px;display:flex;gap:14px;align-items:flex-start">
+      <div style="font-size:28px;flex-shrink:0">⭐</div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#92400E;margin-bottom:6px">Special Thanks — Mohamed Mohsin F</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.7">Mohsin's contribution to this sprint deserves a specific call-out. He took ownership of the hardest part — 8 SEO implementation tickets in 5 days — and never got bumped off course by technical challenges. Every blocker that came up, he worked through. Every ticket shipped cleanly, on time, with 0 regressions. The SEO signal we're seeing in Google Search Console this week is a direct result of his relentless execution and his refusal to let challenges slow the sprint down.</div>
+      </div>
+    </div>
+
     <!-- Challenge story -->
     <div style="background:white;border-radius:10px;border:1px solid var(--border);padding:18px 20px;margin-bottom:16px">
       <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:12px">The Challenge We Overcame — A Story Worth Telling</div>
@@ -714,7 +734,7 @@
     </div>
 
     <div style="background:var(--blue-lt);border-radius:8px;border:1px solid #BFDBFE;padding:14px 18px;font-size:13px;color:var(--text2);line-height:1.7">
-      <strong style="color:var(--blue)">What made this sprint different:</strong> Most SEO work is invisible for months. This one had a measurable outcome in 7 days because the PM had already done the diagnostic work — the SEO agent, the crawl tests, the root cause analysis — before a single engineering ticket was written. Dhanavel built the SSR foundation. Mohsin executed 8 SEO tickets in 5 days. Suresh built the infrastructure from scratch. Anitha and Abdul kept it stable. Govind and Madhu trusted the team to invest in work that compounds. The result: 3&times; more investors finding Aspero the week after the fix shipped. Most React Native teams accept CSR as a limitation — this team didn't.
+      <strong style="color:var(--blue)">What made this sprint different:</strong> Most SEO work is invisible for months. This one had a measurable outcome in 7 days. Dhanavel built the SSR foundation that made everything else possible. Mohsin drove the SEO execution — 8 tickets, 5 days, 0 regressions — pushing through every technical challenge without slowing down. Suresh built the entire production infrastructure from scratch in parallel. Anitha and Abdul kept it rock-stable across 80+ pages and 3 platforms. Govind and Madhu cleared the path so the team could move fast without friction. The result: 3&times; more investors finding Aspero the week after the fix shipped. The diagnostic groundwork — the SEO agent, the crawl tests, the root cause analysis — was completed before the sprint started, so the team had a clear problem and clear targets from day one. Most React Native teams accept CSR as a limitation — this team didn't.
     </div>
   </div>
 
@@ -1029,18 +1049,32 @@ new Chart(document.getElementById('projChart'), {
 // ─── ISIN bars ────────────────────────────────────────────────────────────────
 const maxImp = Math.max(...isinData.map(d=>d.imp));
 const barsEl = document.getElementById('isinBars');
-isinData.slice(0,10).forEach(d => {
+const BARS_VISIBLE = 6;
+isinData.forEach((d, i) => {
   const pct = Math.round(d.imp / maxImp * 100);
-  barsEl.innerHTML += `
-    <div class="progress-row">
-      <div class="lbl" title="${d.isin}">${d.isin}</div>
+  const row = document.createElement('div');
+  row.className = 'progress-row';
+  if (i >= BARS_VISIBLE) row.style.display = 'none';
+  row.innerHTML = `<div class="lbl" title="${d.isin}">${d.isin}</div>
       <div class="bar-wrap"><div class="bar" style="width:${pct}%"></div></div>
-      <div class="num">${d.imp}</div>
-    </div>`;
+      <div class="num">${d.imp}</div>`;
+  barsEl.appendChild(row);
+});
+const barsBtnWrap = document.createElement('div');
+barsBtnWrap.className = 'view-all-wrap';
+barsBtnWrap.innerHTML = '<button class="view-all-btn" id="isinBarsBtn">View All (' + (isinData.length - BARS_VISIBLE) + ' more) ▾</button>';
+barsEl.after(barsBtnWrap);
+document.getElementById('isinBarsBtn').addEventListener('click', function() {
+  const rows = barsEl.querySelectorAll('.progress-row');
+  const exp = this.dataset.expanded === 'true';
+  rows.forEach((r, i) => { if (i >= BARS_VISIBLE) r.style.display = exp ? 'none' : ''; });
+  this.dataset.expanded = exp ? 'false' : 'true';
+  this.textContent = exp ? 'View All (' + (isinData.length - BARS_VISIBLE) + ' more) ▾' : 'Show Less ▴';
 });
 
 // ─── ISIN table ───────────────────────────────────────────────────────────────
 const tbl = document.getElementById('isinTable');
+const ISIN_TBL_VISIBLE = 6;
 isinData.forEach(d => {
   const posCls = d.pos <= 7 ? 'pos-good' : d.pos <= 12 ? 'pos-mid' : 'pos-low';
   tbl.innerHTML += `<tr>
@@ -1052,6 +1086,14 @@ isinData.forEach(d => {
     <td><span class="pos-pill ${posCls}">${d.pos}</span></td>
   </tr>`;
 });
+(function() {
+  const tblRows = tbl.querySelectorAll('tr');
+  tblRows.forEach((r, i) => { if (i >= ISIN_TBL_VISIBLE) r.style.display = 'none'; });
+  const wrap = document.createElement('div');
+  wrap.className = 'view-all-wrap';
+  wrap.innerHTML = '<button class="view-all-btn" onclick="toggleRows(\'isinTable\',' + ISIN_TBL_VISIBLE + ',this)">View All (' + (tblRows.length - ISIN_TBL_VISIBLE) + ' more) ▾</button>';
+  tbl.parentElement.after(wrap);
+})();
 
 // ─── Stacked chart: bond pages vs app pages ───────────────────────────────────
 const investImp = [80,199,310,225,325,250,200,281,400,352,339,345,216,293,1099,1470,1657,347];
@@ -1118,6 +1160,29 @@ bondPages.forEach(d => {
     <td><span class="pos-pill ${posCls}">${d.pos}</span></td>
   </tr>`;
 });
+
+// ─── View All toggle (used by What Shipped, Engineering, Marketing, ISIN table) ─
+function toggleRows(tbodyId, visibleCount, btn) {
+  const tbody = document.getElementById(tbodyId);
+  if (!tbody) return;
+  const rows = tbody.querySelectorAll('tr');
+  const exp = btn.dataset.expanded === 'true';
+  rows.forEach((r, i) => { if (i >= visibleCount) r.style.display = exp ? 'none' : ''; });
+  const hidden = rows.length - visibleCount;
+  btn.dataset.expanded = exp ? 'false' : 'true';
+  btn.textContent = exp ? 'View All (' + hidden + ' more) ▾' : 'Show Less ▴';
+}
+
+// ─── Init: hide extra rows for static tables on page load ─────────────────────
+function initViewAll(tbodyId, visibleCount) {
+  const tbody = document.getElementById(tbodyId);
+  if (!tbody) return;
+  const rows = tbody.querySelectorAll('tr');
+  rows.forEach((r, i) => { if (i >= visibleCount) r.style.display = 'none'; });
+}
+initViewAll('shippedBody', 5);
+initViewAll('engBody', 3);
+initViewAll('mktBody', 3);
 </script>
 </body>
 </html>
