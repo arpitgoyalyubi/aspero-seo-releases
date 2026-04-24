@@ -542,10 +542,10 @@
       <tbody id="mktBody">
         <tr style="background:#FEF2F2">
           <td>ASP-3445 <span class="badge p2">P2</span></td>
-          <td><strong>Migrate wordpress.aspero.co.in → aspero.in/blog/</strong></td>
-          <td>All existing blog rankings + authority</td>
-          <td>Blog split across two domains — link equity and authority are divided</td>
-          <td>🔴 <strong>Highest impact.</strong> Consolidating domains passes all existing backlinks and authority to aspero.in. Every existing blog article ranking improves.</td>
+          <td><strong>Add noindex to UAT subdomain (wordpress.aspero.co.in)</strong><br><small style="color:#64748B">Owner: M. Mohsin F</small></td>
+          <td>Bond keyword rankings on production pages</td>
+          <td>UAT environment already crawled &amp; indexed by Google — duplicate bond pages competing with aspero.in/bond/ URLs</td>
+          <td>🔴 <strong>Must fix.</strong> Google has indexed UAT pages. Every UAT URL dilutes ranking signals for the matching production bond page. A noindex meta tag or <code>robots.txt Disallow: /</code> on the UAT subdomain removes these from Google's index within days and consolidates authority to aspero.in.</td>
           <td><span class="badge" style="background:#F8FAFC;color:#64748B">To Do</span></td>
         </tr>
         <tr>
