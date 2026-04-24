@@ -74,6 +74,20 @@
   .view-all-btn { background:none; border:1px solid var(--border); color:var(--blue); border-radius:20px; padding:5px 16px; font-size:12px; font-weight:600; cursor:pointer; }
   .view-all-btn:hover { background:#EFF6FF; }
 
+  /* ahrefs sections */
+  .auth-row { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:4px; }
+  @media(max-width:700px){ .auth-row{ grid-template-columns:repeat(2,1fr); } }
+  .dr-card { background:var(--card); border-radius:12px; border:1px solid var(--border); padding:16px 18px; }
+  .dr-card .dr-label { font-size:11px; font-weight:600; color:var(--text2); text-transform:uppercase; letter-spacing:.5px; margin-bottom:4px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .dr-card .dr-num { font-size:32px; font-weight:800; line-height:1; margin:4px 0; }
+  .dr-card .dr-sub { font-size:11px; color:var(--text2); margin-top:2px; }
+  .kw-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:4px; }
+  @media(max-width:700px){ .kw-cards{ grid-template-columns:1fr; } }
+  .mover-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:4px; }
+  @media(max-width:700px){ .mover-grid{ grid-template-columns:1fr; } }
+  .mover-card { background:var(--card); border-radius:12px; border:1px solid var(--border); overflow:hidden; }
+  .mover-card .mover-hdr { padding:10px 16px; font-size:13px; font-weight:700; border-bottom:1px solid var(--border); }
+
   /* footer */
   .footer { text-align:center; color:var(--text2); font-size:12px; margin-top:48px; padding-top:24px; border-top:1px solid var(--border); }
   .footer a { color:var(--blue); text-decoration:none; }
@@ -86,7 +100,7 @@
   <div class="hdr">
     <div>
       <h1>Aspero SEO — Organic Growth Dashboard</h1>
-      <div class="meta">Data source: Google Search Console &nbsp;·&nbsp; Generated 24 Apr 2026, 07:03 PM IST</div>
+      <div class="meta">Data source: Google Search Console &nbsp;·&nbsp; Generated 24 Apr 2026, 08:27 PM IST</div>
     </div>
     <div class="pill">📅 25 Feb – 22 Apr 2026</div>
   </div>
@@ -835,12 +849,41 @@
     <div class="view-all-wrap"><button class="view-all-btn" onclick="toggleRows('queryBody',8,this)">View All (17 more) ▾</button></div>
   </div>
 
+  
+  <div class="section-title">🏛 Domain Authority — Aspero vs Competitors</div>
+  <div class="auth-row">
+    <div class="dr-card">
+      <div class="dr-label">Aspero.in (you)</div>
+      <div class="dr-num" style="color:#EF4444">—</div>
+      <div class="dr-sub">0 referring domains</div>
+    </div><div class="dr-card"><div class="dr-label">wintwealth.com</div><div class="dr-num" style="color:#64748B">—</div><div class="dr-sub">0 est. visits/mo</div></div><div class="dr-card"><div class="dr-label">gripinvest.in</div><div class="dr-num" style="color:#64748B">—</div><div class="dr-sub">0 est. visits/mo</div></div><div class="dr-card"><div class="dr-label">stablemoney.com</div><div class="dr-num" style="color:#64748B">—</div><div class="dr-sub">0 est. visits/mo</div></div>
+  </div>
+  <div class="section-title">🔑 Organic Keyword Health</div>
+  <div class="kw-cards">
+    <div class="card"><div class="label">Total Organic Keywords</div><div class="value">0</div><div class="sub">Ahrefs ranking keywords</div></div>
+    <div class="card"><div class="label">Non-Branded Keywords</div><div class="value">0</div><div class="sub">Excludes aspero / yubi brand terms</div></div>
+    <div class="card"><div class="label">Est. Organic Traffic</div><div class="value">0</div><div class="sub">Monthly estimate · Ahrefs</div></div>
+  </div>
+  <div class="section-title">🔗 New Referring Domains — Last 7 Days</div>
+  <div class="tbl-wrap" style="padding:16px;text-align:center;color:#64748B;font-size:13px">No new referring domains this week.</div>
+  <div class="section-title">📈 Position Movers — Week over Week</div>
+  <div class="mover-grid">
+    <div class="mover-card">
+      <div class="mover-hdr" style="color:#10B981">↑ Improved Positions</div>
+      <table style="width:100%;border-collapse:collapse;font-size:13px"><thead><tr><th style="padding:7px 14px;font-size:11px;font-weight:700;color:#475569;text-align:left;background:#F1F5F9;border-bottom:1px solid #E2E8F0">Keyword</th><th style="padding:7px 14px;font-size:11px;font-weight:700;color:#475569;text-align:right;background:#F1F5F9;border-bottom:1px solid #E2E8F0">Δ</th><th style="padding:7px 14px;font-size:11px;font-weight:700;color:#475569;text-align:right;background:#F1F5F9;border-bottom:1px solid #E2E8F0">Pos</th></tr></thead><tbody><tr><td colspan="3" style="text-align:center;color:#64748B;font-size:12px;padding:14px">No significant movers this week</td></tr></tbody></table>
+    </div>
+    <div class="mover-card">
+      <div class="mover-hdr" style="color:#EF4444">↓ Declined Positions</div>
+      <table style="width:100%;border-collapse:collapse;font-size:13px"><thead><tr><th style="padding:7px 14px;font-size:11px;font-weight:700;color:#475569;text-align:left;background:#F1F5F9;border-bottom:1px solid #E2E8F0">Keyword</th><th style="padding:7px 14px;font-size:11px;font-weight:700;color:#475569;text-align:right;background:#F1F5F9;border-bottom:1px solid #E2E8F0">Δ</th><th style="padding:7px 14px;font-size:11px;font-weight:700;color:#475569;text-align:right;background:#F1F5F9;border-bottom:1px solid #E2E8F0">Pos</th></tr></thead><tbody><tr><td colspan="3" style="text-align:center;color:#64748B;font-size:12px;padding:14px">No significant movers this week</td></tr></tbody></table>
+    </div>
+  </div>
+
   <!-- Footer -->
   <div class="footer">
-    Data source: Google Search Console (organic only · no paid) &nbsp;·&nbsp;
+    Data source: Google Search Console (organic only · no paid) &nbsp;·&nbsp; Ahrefs (authority · keywords · backlinks) &nbsp;·&nbsp;
     GSC data lags ~2 days &nbsp;·&nbsp;
     <a href="https://arpitgoyalyubi.github.io/aspero-seo-releases/" target="_blank">SEO Release Note Apr 2026</a> &nbsp;·&nbsp;
-    Generated 24 Apr 2026, 07:03 PM IST
+    Generated 24 Apr 2026, 08:27 PM IST
   </div>
 </div>
 
